@@ -19,6 +19,7 @@ module.exports = function(api) {
     presets: [
       isTestEnv && [
         '@babel/preset-env',
+        '@babel/preset-flow',
         {
           targets: {
             node: 'current'
@@ -42,7 +43,8 @@ module.exports = function(api) {
         {
           development: isDevelopmentEnv || isTestEnv,
           useBuiltIns: true
-        }
+        },
+
       ]
     ].filter(Boolean),
     plugins: [
