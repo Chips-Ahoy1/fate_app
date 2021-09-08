@@ -1,7 +1,7 @@
 export const FateNew = () => {
     return (
         <div>
-            
+            <h1>This is new page</h1>
         </div>
     )
 }
