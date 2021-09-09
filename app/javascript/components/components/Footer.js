@@ -1,9 +1,13 @@
-export const Footer = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+import React,{Component} from 'react'
 
+class Footer extends Component{
+    render() {
+
+        return(
+
+            <h1>This is the Footer page</h1>
+
+        )
+    }
+}
 export default Footer
