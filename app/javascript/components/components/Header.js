@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from "react-router-dom"
 import { Nav, NavItem } from "reactstrap"
 class Header extends Component {
-  render(){
+  render() {
     const {
       logged_in,
       current_user,
@@ -10,32 +10,39 @@ class Header extends Component {
       sign_in_route,
       sign_out_route
     } = this.props
-    return(
+    return (
       <>
-          <Nav>
-            <NavItem>
-              <NavLink to="/">Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to="/fateindex">Event Index</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to="/fatenew">Add Event</NavLink>
-            </NavItem>
-            <br/>
-            {
-              logged_in &&
-                  <div>
-                    <a href={sign_out_route} className='w-8/12 px-5 py-2 my-2 rounded-full bg-gradient-to-r'>Sign Out</a>
-                  </div>
-            }
-            {
-              !logged_in &&
-                  <div>
-                    <a href={sign_in_route}>Sign In</a>
-                  </div>
-            }
-          </Nav>
+
+        <Nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-green-100 mb-3">
+          <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+            <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+              <NavItem>
+                <NavLink to="/">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="/fateindex">Event Index</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="/fatenew">Add Event</NavLink>
+              </NavItem>
+              {
+                logged_in &&
+                <div>
+                  <a href={sign_out_route}>Sign Out</a>
+                </div>
+              }
+              {
+                !logged_in &&
+                <div>
+                  <a href={sign_in_route}>Sign In</a>
+                </div>
+              }
+            </div>
+          </div>
+        </Nav>
+
+
+
       </>
     )
   }
