@@ -26,7 +26,7 @@ class Header extends Component {
             {
               logged_in &&
                   <div>
-                    <a href={sign_out_route}>Sign Out</a>
+                    <a href={sign_out_route} className='w-8/12 px-5 py-2 my-2 rounded-full bg-gradient-to-r'>Sign Out</a>
                   </div>
             }
             {
