@@ -4,11 +4,26 @@ import { Col, Card, CardSubtitle } from "reactstrap";
 class FateIndex extends Component {
   //this page still needs work
   render() {
+            console.log(this.props.events)
     return (
       <>
-        <div>
-          <h2>This is Fate Index Page</h2>
-          <br />
+      <div>
+          <h2>This is Fate Index Page Test1</h2>         
+            {this.props.events && this.props.events.map(event => {
+              return(
+                <p key={event.id}>
+                  {event.description}
+                </p>            
+          )})}
+      </div>
+      </>
+    );
+  }
+}
+export default FateIndex;
+
+
+          {/* <br />
           <Col sm="6">
             {this.props.event?.map((event, i) => {
               //Optional chaining ? asking if something exists,do.
@@ -21,10 +36,4 @@ class FateIndex extends Component {
                 </Card>
               );
             })}
-          </Col>
-        </div>
-      </>
-    );
-  }
-}
-export default FateIndex;
+          </Col> */}

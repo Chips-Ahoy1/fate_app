@@ -27,7 +27,8 @@ class App extends React.Component {
   }
 
   eventIndex = () => {
-    fetch("http://localhost:3000/events")
+    fetch("/events")
+      .then((response) => response.json())
       .then(eventsArray => this.setState({ events: eventsArray }))
       .catch(errors => console.log("Event read errors: ", errors))
   }//put into fate index
@@ -59,15 +60,16 @@ class App extends React.Component {
   }
 
   render() {
-
+            console.log(this.state.events)
     return (
+      
         <Router>
-          <Header {...this.props}/>
-          <Route exact path="/" component={ Home } />
-          <Route path="/fateindex" render={ (props) => <FateIndex events={ this.state.events }/> } />
-          <Route path="/fatenew" render={ (props) => <FateNew createEvent={this.createEvent} /> } />
-        <Switch>
-        </Switch>
+            <Header {...this.props}/>
+              <Switch>
+                <Route exact path="/" component={ Home } />
+                <Route path="/fateindex" render={ (props) => <FateIndex events={ this.state.events }/> } />
+                <Route path="/fatenew" render={ (props) => <FateNew createEvent={this.createEvent} /> } />
+              </Switch>
       </Router>
     );
   }
