@@ -27,10 +27,10 @@ class App extends React.Component {
   }
 
   eventIndex = () => {
-    fetch("http://localhost:3000/fate")
+    fetch("http://localhost:3000/events")
       .then(eventsArray => this.setState({ events: eventsArray }))
       .catch(errors => console.log("Event read errors: ", errors))
-  }
+  }//put into fate index
 
   createNewEvent = (newEvent) => {
       console.log(this.props.logged_in)
