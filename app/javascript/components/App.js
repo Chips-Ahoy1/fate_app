@@ -41,7 +41,7 @@ class App extends React.Component {
     })
     .then(response => {
       console.log("response check")
-      if (response.status === 422){
+      if (response.status >= 400){
         alert("Please try again")
       }
       return response.json
