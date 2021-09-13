@@ -4,11 +4,9 @@ import { Nav, NavItem } from "reactstrap"
 class Header extends Component {
   render() {
     const {
-      logged_in,
-      current_user,
-      new_user_route,
-      sign_in_route,
-      sign_out_route
+      logged_in: loggedIn,
+      sign_in_route: signInRoute,
+      sign_out_route: signOutRoute
     } = this.props
     return (
       <>
@@ -28,23 +26,20 @@ class Header extends Component {
                 <NavLink to="/fateshow">My Profile</NavLink>
               </NavItem>
               {
-                logged_in &&
+                loggedIn &&
                 <div>
-                  <a href={sign_out_route}>Sign Out</a>
+                  <a href={signOutRoute}>Sign Out</a>
                 </div>
               }
               {
-                !logged_in &&
+                !loggedIn &&
                 <div>
-                  <a href={sign_in_route}>Sign In</a>
+                  <a href={signInRoute}>Sign In</a>
                 </div>
               }
             </div>
           </div>
         </Nav>
-
-
-
       </>
     )
   }

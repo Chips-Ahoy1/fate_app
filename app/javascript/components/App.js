@@ -14,14 +14,7 @@ class App extends React.Component {
     return (
       <Router>
         <Header {...this.props} />
-        <Switch>
-          {/* <Route exact path="/" component={ Home } /> 
-          <Route path="/about" component={ AboutUs } />
-           <Route path="/learn" component={ LearnMore } />
-           <Route path="/learn" component={ LearnMore } />
-           <Route path="/learn" component={ LearnMore } />
-           <Route path="/learn" component={ LearnMore } />
-            */}
+        <Switch>        
         </Switch>
       </Router>
     );
