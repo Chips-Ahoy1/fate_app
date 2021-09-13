@@ -13,7 +13,7 @@ class FateNew extends Component{
         category: "",
         url: "",
         description: "",
-        is_public: "",
+        is_public: false,
       },
       submitted: false
     }
@@ -55,13 +55,15 @@ class FateNew extends Component{
                 </FormGroup>
                 <FormGroup check>
                   <Label check>
-                    <Input type="radio" name="is_public" onChange={this.handleChange} value={this.state.form.is_public}/>{' '}true
+                    <Input type="radio" name="is_public" 
+                    onChange={this.handleChange} value={true}/>public
                   </Label>
                 </FormGroup>
                 <FormGroup check>
                   <Label check>
-                    <Input type="radio" checked="checked" name="is_public" onChange={this.handleChange} value={this.state.form.is_public}/>{' '}
-                  </Label>false
+                    <Input type="radio" name="is_public"
+                     onChange={this.handleChange} value={false}/>private
+                  </Label>
                 </FormGroup>
                 <Button name="go-back" onClick={this.handleSubmit} className="button-style">
                 Go Back

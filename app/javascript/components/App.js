@@ -29,14 +29,15 @@ class App extends React.Component {
   }; //put into fate index
 
   createNewEvent = (event) => {
+    const { description, url, category, is_public } = event;
     if (
-      !event.description ||
-      !event.url ||
-      !event.category ||
-      !event.is_public
+      (!description && description === "") ||
+      (!url && url === "") ||
+      (!category && category === "") ||
+      (!is_public && is_public === "")
     ) {
-      console.log(event)
-    }else{
+      alert("you need to input something");
+    } else {
       fetch("/events", {
         body: JSON.stringify(event),
         headers: { "Content-Type": "application/json" },
