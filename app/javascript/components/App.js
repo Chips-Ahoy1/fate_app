@@ -34,8 +34,6 @@ class App extends React.Component {
   }//put into fate index
 
   createNewEvent = (newEvent) => {
-      console.log(this.props.logged_in)
-      console.log(newEvent)
       fetch("/fate", {
       body: JSON.stringify(newEvent),
       headers: {'Content-Type': 'application/json'},
@@ -60,7 +58,6 @@ class App extends React.Component {
   }
 
   render() {
-            console.log(this.state.events)
     return (
       
         <Router>
@@ -68,7 +65,7 @@ class App extends React.Component {
               <Switch>
                 <Route exact path="/" component={ Home } />
                 <Route path="/fateindex" render={ (props) => <FateIndex events={ this.state.events }/> } />
-                <Route path="/fatenew" render={ (props) => <FateNew createEvent={this.createEvent} /> } />
+                <Route path="/fatenew" render={ (props) => <FateNew createEvent={this.props.createNewEvent} /> } />
               </Switch>
       </Router>
     );
