@@ -1,12 +1,13 @@
 import React,{Component} from 'react'
-
+import Button from '../components/Button'
 class FateIndex extends Component{
     render() {
 
         return(
-
-            <h1>This is the FateIndex page</h1>
-
+            <>
+            <h1>Welcome to Fate</h1>
+            <Button/>
+            </>
         )
     }
 }
