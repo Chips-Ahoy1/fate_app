@@ -1,9 +1,9 @@
 # User.destroy_all
 User.destroy_all
 user_data = {
-    email: 'IAmKingThanos@thanosisking.com',
-    password: 'GauntletIsBae',
-    password_confirmation: 'GauntletIsBae'
+    email: 'fate@fate.com',
+    password: 'admin123',
+    password_confirmation: 'admin123'
 }
 test_user = User.create(user_data)
 if test_user.valid?

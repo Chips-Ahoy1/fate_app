@@ -1,5 +1,7 @@
 import React,{Component} from 'react'
 import {Form, FormGroup, Input, Label, Button} from 'reactstrap'
+import {Redirect} from "react-router-dom"
+
 
 
 class FateNew extends Component{
@@ -53,12 +55,12 @@ class FateNew extends Component{
                 </FormGroup>
                 <FormGroup check>
                   <Label check>
-                    <Input type="radio" name="radio1" onChange={this.handleChange} value={this.state.form.is_public}/>{' '}true
+                    <Input type="radio" name="is_public" onChange={this.handleChange} value={this.state.form.is_public}/>{' '}true
                   </Label>
                 </FormGroup>
                 <FormGroup check>
                   <Label check>
-                    <Input type="radio" name="radio1" onChange={this.handleChange} value={this.state.form.is_public}/>{' '}
+                    <Input type="radio" checked="checked" name="is_public" onChange={this.handleChange} value={this.state.form.is_public}/>{' '}
                   </Label>false
                 </FormGroup>
                 <Button name="go-back" onClick={this.handleSubmit} className="button-style">

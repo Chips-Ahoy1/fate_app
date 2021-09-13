@@ -1,72 +1,79 @@
 import React from "react";
 import "./index.css";
 import PropTypes from "prop-types";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from "react-router-dom"
-import { Nav, NavItem } from "reactstrap"
-import Header from "./components/Header"
-import FateNew from "./pages/FateNew"
-import FateIndex from "./pages/FateIndex"
-import Home from "./pages/Home"
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Nav, NavItem } from "reactstrap";
+import Header from "./components/Header";
+import FateNew from "./pages/FateNew";
+import FateIndex from "./pages/FateIndex";
+import Home from "./pages/Home";
 
 class App extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
-      events: []
-    }
+      events: [],
+    };
   }
 
   componentDidMount() {
-    this.eventIndex()
+    this.fetchIndex();
   }
 
-  eventIndex = () => {
+  fetchIndex = () => {
     fetch("/events")
       .then((response) => response.json())
-      .then(eventsArray => this.setState({ events: eventsArray }))
-      .catch(errors => console.log("Event read errors: ", errors))
-  }//put into fate index
+      .then((eventsArray) => this.setState({ events: eventsArray }))
+      .catch((errors) => console.log("Event read errors: ", errors));
+  }; //put into fate index
 
-  createNewEvent = (newEvent) => {
-      fetch("/fate", {
-      body: JSON.stringify(newEvent),
-      headers: {'Content-Type': 'application/json'},
-      method: "POST"
-    })
-    .then(response => {
-      console.log("response check")
-      if (response.status >= 400){
-        alert("Please try again")
-      }
-      return response.json
-
-      // window.location = "/apartmentindex"
-    })
-    .then(payload => {
-      console.log("payload")
-      return this.fateIndex()
-    })
-    .catch(err => {
-      console.log("createnewerror: ", err)
-    })
-  }
-
+  createNewEvent = (event) => {
+    if (
+      !event.description ||
+      !event.url ||
+      !event.category ||
+      !event.is_public
+    ) {
+      console.log(event)
+    }else{
+      fetch("/events", {
+        body: JSON.stringify(event),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      })
+        .then((response) => {
+          if (response.status > 400) {
+            return response.status;
+          } else {
+            return response.json();
+          }
+        })
+        .then((event) => {
+          this.fetchIndex();
+        })
+        // window.location = "/apartmentindex"
+        .catch((err) => {
+          console.log("createnewerror: ", err);
+        });
+      
+    }
+  };
   render() {
     return (
-      
-        <Router>
-            <Header {...this.props}/>
-              <Switch>
-                <Route exact path="/" component={ Home } />
-                <Route path="/fateindex" render={ (props) => <FateIndex events={ this.state.events }/> } />
-                <Route path="/fatenew" render={ (props) => <FateNew createEvent={this.props.createNewEvent} /> } />
-              </Switch>
+      <Router>
+        <Header {...this.props} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route
+            path="/fateindex"
+            render={(props) => <FateIndex events={this.state.events} />}
+          />
+          <Route
+            path="/fatenew"
+            render={(props) => <FateNew createNewEvent={this.createNewEvent} />}
+          />
+        </Switch>
       </Router>
     );
   }
