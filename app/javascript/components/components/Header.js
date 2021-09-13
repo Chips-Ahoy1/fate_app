@@ -25,18 +25,8 @@ class Header extends Component {
               <NavItem>
                 <NavLink to="/fateshow">My Profile</NavLink>
               </NavItem>
-              {
-                loggedIn &&
-                <div>
-                  <a href={signOutRoute}>Sign Out</a>
-                </div>
-              }
-              {
-                !loggedIn &&
-                <div>
-                  <a href={signInRoute}>Sign In</a>
-                </div>
-              }
+              {loggedIn ? <a href={signOutRoute}>Sign Out</a> : <a href={signInRoute}>Sign In</a>}
+
             </div>
           </div>
         </Nav>
