@@ -5,6 +5,7 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.string :category
       t.boolean :is_public
       t.text :description
+      t.integer :user_id
 
       t.timestamps
     end
