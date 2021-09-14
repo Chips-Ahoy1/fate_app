@@ -25,11 +25,20 @@ class FateNew extends Component{
         form[e.target.name] = e.target.value
         // setting state to the updated form
         this.setState({ form: form })
+        console.log(this.state.form.category);
     }
+
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.createNewEvent(this.state.form)
         this.setState({submitted: true})
+    }
+
+    fetchImages = async () => {
+      const response = await fetch(`https://api.unsplash.com/search/photos/?client_id=1cb7RG1N3agHLuchuLs2GeqtKtdcyELRMj5HLHf8p48&query=${this.state.form.category}&per_page=3&orientation`)
+
+      const test = await response.json()
+      console.log(test);
     }
 
     render() {
@@ -43,6 +52,9 @@ class FateNew extends Component{
                     <Label id = "Category">Category</Label>
                     <Input type="text"name="category" onChange={this.handleChange} value={this.state.form.category}/>
                 </FormGroup>
+                  <Button name="fetch-images" onClick={this.fetchImages} className="button-style">
+                    get images
+                  </Button>
                 <FormGroup>
                 <br/>
                     <Label id = "Url">Url</Label>
@@ -55,7 +67,7 @@ class FateNew extends Component{
                 </FormGroup>
                 <FormGroup check>
                   <Label check>
-                    <Input type="radio" name="is_public" 
+                    <Input type="radio" name="is_public"
                     onChange={this.handleChange} value={true}/>public
                   </Label>
                 </FormGroup>

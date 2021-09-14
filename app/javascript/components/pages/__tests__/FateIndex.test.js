@@ -7,9 +7,9 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('when FateIndex renders', () => {
     test('should display index heading', () => {
-        const fateIndex = shallow(<FateIndex/>)
-        const indexHeading = fateIndex.find("h1")
-      expect(indexHeading.text()).toEqual("This is the FateIndex page")
+      const fateIndex = shallow(<FateIndex/>)
+      const fateIndexHeading = fateIndex.find("h1")
+    expect(fateIndexHeading.text()).toEqual("This is the FateIndex page")
     })
 
 })
