@@ -6,7 +6,9 @@ import { Nav, NavItem } from "reactstrap";
 import Header from "./components/Header";
 import FateNew from "./pages/FateNew";
 import FateIndex from "./pages/FateIndex";
+import FateShow from './pages/FateShow';
 import Home from "./pages/Home";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -74,6 +76,11 @@ class App extends React.Component {
             path="/fatenew"
             render={(props) => <FateNew createNewEvent={this.createNewEvent} />}
           />
+          <Route path="/fateshow/:id" render={(props) => { 
+            let id = props.match.params.id
+            let event = this.state.events.find(event => event.id === +id)
+            return <FateShow event={event}/>
+          }} />
         </Switch>
       </Router>
     );
@@ -81,3 +88,4 @@ class App extends React.Component {
 }
 
 export default App;
+

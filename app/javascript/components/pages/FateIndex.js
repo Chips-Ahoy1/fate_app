@@ -17,6 +17,7 @@ class FateIndex extends Component {
                                 <p>
                                     {event.description}
                                 </p>
+                                <Button title="View" onClick={()=> window.location = `/fateshow/${i}`}/>
                             </div>
                         )
                     })}
