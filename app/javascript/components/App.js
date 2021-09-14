@@ -26,7 +26,7 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((eventsArray) => this.setState({ events: eventsArray }))
       .catch((errors) => console.log("Event read errors: ", errors));
-  }; //put into fate index
+  };
 
   createNewEvent = (event) => {
     const { description, url, category, is_public } = event;
@@ -57,7 +57,7 @@ class App extends React.Component {
         .catch((err) => {
           console.log("createnewerror: ", err);
         });
-      
+
     }
   };
   render() {
