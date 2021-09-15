@@ -79,6 +79,7 @@ class App extends React.Component {
           <Route path="/fateshow/:id" render={(props) => { 
             let id = props.match.params.id
             let event = this.state.events.find(event => event.id === +id)
+            {console.log(this.state.events);}
             return <FateShow event={event}/>
           }} />
         </Switch>
