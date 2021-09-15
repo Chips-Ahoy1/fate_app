@@ -7,12 +7,12 @@ class FateIndex extends Component {
     return (
       <>
       <div>
-          <h2>This is Fate Index Page Test1</h2>         
+          <h1>This is the FateIndex page</h1>         
             {this.props.events && this.props.events.map(event => {
               return(
                 <p key={event.id}>
                   {event.description}
-                </p>            
+                </p>
           )})}
       </div>
       </>
@@ -20,4 +20,3 @@ class FateIndex extends Component {
   }
 }
 export default FateIndex;
-
