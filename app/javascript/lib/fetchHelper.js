@@ -1,5 +1,6 @@
 export const fetchHelper = (response) => {
-  if(!response){
+  if(!response||!response.results){
+    alert('Error in reponse')
     return []
   }
   return response.results.map(img => {

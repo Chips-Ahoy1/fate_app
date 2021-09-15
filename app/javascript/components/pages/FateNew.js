@@ -33,11 +33,15 @@ class FateNew extends Component {
   };
 
   fetchImages = async () => {
-    const response = await fetch(
-      `https://api.unsplash.com/search/photos/?client_id=1cb7RG1N3agHLuchuLs2GeqtKtdcyELRMj5HLHf8p48&query=${this.state.form.category}&per_page=3&orientation`
-    );
-    const test = await response.json();
-    this.setState({ urls: fetchHelper(test) });
+    if (!this.state.form.category){
+      alert("Please select a category")
+    }else{
+      const response = await fetch(
+        `https://api.unsplash.com/search/photos/?client_id=1cb7RG1N3agHLuchuLs2GeqtKtdcyELRMj5HLHf8p48&query=${this.state.form.category}&per_page=3&orientation`
+      );
+      const responseJson = await response.json();
+      this.setState({ urls: fetchHelper(responseJson) });
+     }
   };
 
   render() {
@@ -120,7 +124,7 @@ class FateNew extends Component {
           </Button>
         </Form>
         {this.state.submitted && <Redirect to="/fateindex" />}
-        {this.state.urls.map((url, keyID) => {
+        {this.state.urls && this.state.urls.map((url, keyID) => {
           return (
             <div key={keyID}>
               <img src={url} />

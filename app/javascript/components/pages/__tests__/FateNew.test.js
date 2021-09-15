@@ -14,16 +14,3 @@ describe('when FateNew renders', () => {
     })
 })
 
-// fdescribe('when click on submit redirected to index', () => {
-//     test('should redirect to index after click submit', () => {
-//       const fateNew = shallow(<FateNew />)
-//       expect(fateNew.this.props.setState({submitted: true})).to_be(true)
-//     })
-//
-// })
-//
-// describe('new event added to index page', () => {
-//     test('should show new event on index page', () => {
-//
-//     })
-// })
