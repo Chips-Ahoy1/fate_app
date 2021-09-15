@@ -6,10 +6,26 @@ import FateShow from '../FateShow'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('when FateShow renders', () => {
-    test('should display fateshow heading', () => {
-        const fateShow = shallow(<FateShow/>)
-        const fateShowHeading= fateShow.find("h1")
-      expect(fateShowHeading.text()).toEqual("This is the FateShow page")
-    })
+  let event = {
+    image_url: 'meow',
+    category: 'cat',
+    is_public: true,
+    description: 'cat text'
+  }
+  test('should render show page title', () => {
+    const fateShow = shallow(<FateShow />)
+    const findP = fateShow.find('h1')
+    expect(findP.length).toEqual(1)
+  })
+  test('renders category', () => {
+    const fateShow = shallow(<FateShow event={event}/>)
+    const showDescription = fateShow.find('p')
+    expect(showDescription.length).toEqual(2)
+  })
+  test('renders category', () => {
+    const fateShow = shallow(<FateShow event={event}/>)
+    const showImg = fateShow.find('img')
+    expect(showImg.length).toEqual(1)
+  })
 
 })
