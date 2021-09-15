@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Col, Card, CardSubtitle } from "reactstrap";
+import { NavItem, Nav, Col, Card, CardSubtitle } from "reactstrap";
+import { NavLink } from "react-router-dom";
 import Button from '../components/Button'
+
 
 class FateIndex extends Component {
     handleClick = () => {
@@ -13,12 +15,21 @@ class FateIndex extends Component {
                     <h2>This is Fate Index Page Test1</h2>
                     {this.props.events && this.props.events.map((event, i) => {
                         return (
-                            <div key={i}> <img src={event.image_url} alt={event.category} />
+                            <div>
+                            <div key={i}> 
+                            <img src={event.image_url} alt={event.category} />
                                 <p>
                                     {event.description}
                                 </p>
-                                <Button title="View" onClick={()=> window.location = `/fateshow/${i}`}/>
                             </div>
+                            <div>
+                              <Nav>
+                                 <NavItem>
+                                <NavLink className="names" to={`/fateshow/${event.id}`}>View</NavLink>
+                                </NavItem>
+                             </Nav>
+                             </div>
+                             </div>
                         )
                     })}
                     <Button title="Add an interest" handleClick={this.handleClick} />
