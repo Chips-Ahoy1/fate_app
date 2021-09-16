@@ -3,13 +3,14 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import FateNew from '../FateNew'
 
+
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('when FateNew renders', () => {
-    test('should display fatenew heading', () => {
+    test('should display a form', () => {
         const fateNew = shallow(<FateNew/>)
-        const fateNewHeading = fateNew.find("h1")
-      expect(fateNewHeading.text()).toEqual("This is the FateNew page")
+        const form = fateNew.find("Form")
+        expect(form.length).toEqual(1)
     })
-
 })
+
