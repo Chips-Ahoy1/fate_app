@@ -6,7 +6,9 @@ import { Nav, NavItem } from "reactstrap";
 import Header from "./components/Header";
 import FateNew from "./pages/FateNew";
 import FateIndex from "./pages/FateIndex";
+import FateShow from './pages/FateShow';
 import Home from "./pages/Home";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +28,7 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((eventsArray) => this.setState({ events: eventsArray }))
       .catch((errors) => console.log("Event read errors: ", errors));
-  }; //put into fate index
+  };
 
   createNewEvent = (event) => {
     const { description, url, category, is_public } = event;
@@ -57,7 +59,7 @@ class App extends React.Component {
         .catch((err) => {
           console.log("createnewerror: ", err);
         });
-      
+
     }
   };
   render() {
@@ -74,6 +76,12 @@ class App extends React.Component {
             path="/fatenew"
             render={(props) => <FateNew createNewEvent={this.createNewEvent} />}
           />
+          <Route path="/fateshow/:id" render={(props) => { 
+            let id = props.match.params.id
+            let event = this.state.events.find(event => event.id === +id)
+            {console.log(this.state.events);}
+            return <FateShow event={event}/>
+          }} />
         </Switch>
       </Router>
     );
@@ -81,3 +89,4 @@ class App extends React.Component {
 }
 
 export default App;
+
