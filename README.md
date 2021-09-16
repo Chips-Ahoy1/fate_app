@@ -1,24 +1,36 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+# Fate
 
-* System dependencies
+Fate is a photo sharing community based around an "Event" events are moments in peoples lives that they wish to share to each other through picture and a lite description.
 
-* Configuration
+## Stack
 
-* Database creation
+-Tailwind,
+-Reactstrap,
+-React.js,
+-Ruby on rail,
+-Jest,
 
-* Database initialization
+## Development
 
-* How to run the test suite
+```bash
+$ yarn install
+$ bundle install 
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Usage
 
-* Deployment instructions
+$ rails s 
 
-* ...
+
+
+
+## Contributors
+///
+
+

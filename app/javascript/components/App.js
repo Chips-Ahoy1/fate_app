@@ -10,7 +10,6 @@ import FateShow from './pages/FateShow';
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs"
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
