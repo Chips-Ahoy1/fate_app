@@ -2,19 +2,8 @@ import React, { Component } from "react";
 import { NavItem, Nav, Col, Card, CardSubtitle } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import Button from '../components/Button'
+import CardComponent from "../components/CardComponent"; 
 
-export const CardComponent = ({ event }) => {
-    return (<div className="w-full flex justify-center items-end padding mb-6">
-        <NavLink className="names" to={`/fateshow/${event.id}`}>
-            <img src={event.image_url} alt={event.category} />
-        </NavLink>
-        <div className="bg-purple-300 w-full h-20 flex items-center justify-center">
-            <p>
-                {event.description}
-            </p>
-        </div>
-    </div>)
-}
 class FateIndex extends Component {
     handleClick = () => {
         console.log('hello world');

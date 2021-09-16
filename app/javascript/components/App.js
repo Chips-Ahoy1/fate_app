@@ -82,7 +82,7 @@ class App extends React.Component {
             {console.log(this.state.events);}
             return <FateShow event={event}/>
           }} />
-          <Route path="/aboutus"component={AboutUs}/>
+          <Route path="/aboutus" component={AboutUs}/>
         </Switch>
       </Router>
     );
