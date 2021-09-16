@@ -8,6 +8,7 @@ import FateNew from "./pages/FateNew";
 import FateIndex from "./pages/FateIndex";
 import FateShow from './pages/FateShow';
 import Home from "./pages/Home";
+import AboutUs from "./pages/AboutUs"
 
 
 class App extends React.Component {
@@ -82,6 +83,7 @@ class App extends React.Component {
             {console.log(this.state.events);}
             return <FateShow event={event}/>
           }} />
+          <Route path="/aboutus" component={AboutUs}/>
         </Switch>
       </Router>
     );
