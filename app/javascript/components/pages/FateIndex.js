@@ -32,4 +32,3 @@ class FateIndex extends Component {
     }
 }
 export default FateIndex;
-
