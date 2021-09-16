@@ -4,8 +4,11 @@ class Home extends Component{
     render() {
 
         return(
-
-            <h1>This is the Home page</h1>
+            <>
+            <h1>Fate</h1>
+            <h2>Driven by the future</h2>
+            <h4>About us</h4>
+            </>
 
         )
     }
