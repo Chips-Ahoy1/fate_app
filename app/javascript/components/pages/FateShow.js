@@ -22,13 +22,3 @@ class FateShow extends Component {
     }
 }
 export default FateShow
-{/* {this.props.event && this.props.event.map((event, i) => {
-                        return (
-                            <div key={i}>
-                                <img src={event.image_url} alt={event.category} />
-                                <p>
-                                    {event.description}
-                                </p>
-                            </div>
-                        )
-                    })} */}
