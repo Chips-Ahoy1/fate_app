@@ -6,9 +6,9 @@ import { Nav, NavItem } from "reactstrap";
 import Header from "./components/Header";
 import FateNew from "./pages/FateNew";
 import FateIndex from "./pages/FateIndex";
-import FateShow from './pages/FateShow';
+import FateShow from "./pages/FateShow";
 import Home from "./pages/Home";
-import AboutUs from "./pages/AboutUs"
+import AboutUs from "./pages/AboutUs";
 
 class App extends React.Component {
   constructor(props) {
@@ -59,10 +59,10 @@ class App extends React.Component {
         .catch((err) => {
           console.log("createnewerror: ", err);
         });
-
     }
   };
   render() {
+    console.log(this.state, "from app js");
     return (
       <Router>
         <Header {...this.props} />
@@ -76,13 +76,18 @@ class App extends React.Component {
             path="/fatenew"
             render={(props) => <FateNew createNewEvent={this.createNewEvent} />}
           />
-          <Route path="/fateshow/:id" render={(props) => { 
-            let id = props.match.params.id
-            let event = this.state.events.find(event => event.id === +id)
-            {console.log(this.state.events);}
-            return <FateShow event={event}/>
-          }} />
-          <Route path="/aboutus" component={AboutUs}/>
+          <Route
+            path="/fateshow/:id"
+            render={(props) => {
+              let id = props.match.params.id;
+              let event = this.state.events.find((event) => event.id === +id);
+              {
+                console.log(this.state.events);
+              }
+              return <FateShow event={event} fetchIndex={this.fetchIndex} />;
+            }}
+          />
+          <Route path="/aboutus" component={AboutUs} />
         </Switch>
       </Router>
     );
@@ -90,4 +95,3 @@ class App extends React.Component {
 }
 
 export default App;
-
