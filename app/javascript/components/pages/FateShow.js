@@ -11,7 +11,7 @@ class FateShow extends Component {
         if (response.status > 400) {
           return response.status;
         } else {
-          return response.json();
+          return console.error(`response.status: ${response.status}`);
         }
       })
       .then(() => {

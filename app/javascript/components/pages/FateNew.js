@@ -70,7 +70,7 @@ class FateNew extends Component {
                 this.state.urls.map((url, keyID) => {
                   return (
                     <div key={keyID}>
-                      <img src={url} className=".h-50px" />
+                      <img src={url} className="h-50px" />
                       <Input
                         name="url"
                         type="radio"

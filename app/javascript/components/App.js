@@ -62,7 +62,6 @@ class App extends React.Component {
     }
   };
   render() {
-    console.log(this.state, "from app js");
     return (
       <Router>
         <Header {...this.props} />
@@ -81,9 +80,6 @@ class App extends React.Component {
             render={(props) => {
               let id = props.match.params.id;
               let event = this.state.events.find((event) => event.id === +id);
-              {
-                console.log(this.state.events);
-              }
               return <FateShow event={event} fetchIndex={this.fetchIndex} />;
             }}
           />
