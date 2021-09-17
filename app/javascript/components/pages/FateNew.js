@@ -48,93 +48,102 @@ class FateNew extends Component {
   render() {
     return (
       <>
-        <h1>This is the FateNew page</h1>
-        <Form>
-          <FormInput
-            name="category"
-            handleChange={this.handleChange}
-            value={this.state.form.category}
-            label="Category"
-          />
-          <Button
-            name="fetch-images"
-            onClick={this.fetchImages}
-            className="button-style"
-          >
-            get images
-          </Button>
-          <FormGroup>
-            <br />
-            <Label id="Url">Url</Label>
+        <div className="grid justify-items-center">
+          <h1 className="text-4xl">This is the FateNew page</h1>
+          <Form>
             <FormInput
-              name="Image_url"
-              Label="url"
+              name="category"
               handleChange={this.handleChange}
-              value={this.state.form.url}
+              value={this.state.form.category}
+              label="Category"
             />
-          </FormGroup>
-          <FormGroup>
-            <br />
-            <Label id="NewTable">Description</Label>
-            <Input
-              type="text"
-              name="description"
-              onChange={this.handleChange}
-              value={this.state.form.description}
-            />
-          </FormGroup>
-          <FormGroup check>
-            <Label check>
-              <Input
-                type="radio"
-                name="is_public"
-                onChange={this.handleChange}
-                value={true}
+            <Button
+              name="fetch-images"
+              onClick={this.fetchImages}
+              className="button-style"
+            >
+              get images
+            </Button>
+
+            <div>
+              {this.state.urls &&
+                this.state.urls.map((url, keyID) => {
+                  return (
+                    <div key={keyID}>
+                      <img src={url} className=".h-50px"/>
+                      <Input
+                        name="url"
+                        type="radio"
+                        value={url}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  );
+                })}
+            </div>
+
+            <FormGroup>
+              <br />
+              <Label id="Url">Url</Label>
+              <FormInput
+                name="Image_url"
+                Label="url"
+                handleChange={this.handleChange}
+                value={this.state.form.url}
               />
-              public
-            </Label>
-          </FormGroup>
-          <FormGroup check>
-            <Label check>
+            </FormGroup>
+            <FormGroup>
+              <br />
+              <Label id="NewTable">Description</Label>
               <Input
-                type="radio"
-                name="is_public"
+                type="text"
+                name="description"
                 onChange={this.handleChange}
-                value={false}
+                value={this.state.form.description}
               />
-              private
-            </Label>
-          </FormGroup>
-          <Button
-            name="go-back"
-            onClick={this.handleSubmit}
-            className="button-style"
-          >
-            Go Back
-          </Button>
-          <Button
-            name="submit"
-            onClick={this.handleSubmit}
-            className="button-style"
-          >
-            submit
-          </Button>
-        </Form>
-        {this.state.submitted && <Redirect to="/fateindex" />}
-        {this.state.urls &&
-          this.state.urls.map((url, keyID) => {
-            return (
-              <div key={keyID}>
-                <img src={url} />
-                <Input
-                  name="url"
-                  type="radio"
-                  value={url}
-                  onChange={this.handleChange}
-                />
-              </div>
-            );
-          })}
+            </FormGroup>
+            <div>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="is_public"
+                    onChange={this.handleChange}
+                    value={true}
+                  />
+                  public
+                </Label>
+              </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="is_public"
+                    onChange={this.handleChange}
+                    value={false}
+                  />
+                  private
+                </Label>
+              </FormGroup>
+            </div>
+            <Button
+              name="go-back"
+              onClick={this.handleSubmit}
+              className="button-style"
+            >
+              Go Back
+            </Button>
+            <Button
+              name="submit"
+              onClick={this.handleSubmit}
+              className="button-style"
+            >
+              submit
+            </Button>
+          </Form>
+          {this.state.submitted && <Redirect to="/fateindex" />}
+
+        </div>
       </>
     );
   }

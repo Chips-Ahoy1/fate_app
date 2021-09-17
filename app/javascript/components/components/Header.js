@@ -17,7 +17,7 @@ class Header extends Component {
                 <NavLink to="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/fateindex">Event Index</NavLink>
+                <NavLink to="/fateindex">Events</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink to="/fatenew">Add Event</NavLink>
