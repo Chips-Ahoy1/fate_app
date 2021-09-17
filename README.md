@@ -16,8 +16,10 @@ Fate is a photo sharing community based around an "Event" events are moments in 
 ## Development
 
 ```bash
-$ yarn install
-$ bundle install 
+$ git clone 
+$ cd fate/app
+$ bundle
+$ yarn
 $ rails db:create
 $ rails db:migrate
 $ rails db:seed
