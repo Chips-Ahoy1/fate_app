@@ -6,7 +6,6 @@ class FormInput extends Component {
   render() {
     return (
       <FormGroup>
-        <br />
         <Label id={this.props.name}>{this.props.label}</Label>
         <Input
           type="text"
