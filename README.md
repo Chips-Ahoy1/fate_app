@@ -7,16 +7,16 @@ Fate is a photo sharing community based around an "Event" events are moments in 
 
 ## Stack
 
--Tailwind,
--Reactstrap,
--React.js,
--Ruby on rail,
--Jest,
+- Tailwind,
+- Reactstrap,
+- React.js -version 17.0.2,
+- Ruby on rail -version 6.1.4.1,
+- Jest,
 
 ## Development
 
 ```bash
-$ git clone 
+$ git clone
 $ cd fate/app
 $ bundle
 $ yarn
@@ -27,12 +27,11 @@ $ rails db:seed
 
 ## Usage
 
-$ rails s 
-
-
+$ rails s
 
 
 ## Contributors
-///
-
-
+Brian Pompa: Product Manager
+Galadoe Kulee: Project Manager
+Trey Rogers: Tech Lead
+Chris Mackey: Design Lead
