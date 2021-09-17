@@ -3,31 +3,31 @@ import React,{Component} from 'react'
 import CardComponent from '../components/CardComponent'
 
 const teamchips = [{
-    id: 'Brian Pompa', 
+    id: 'Brian Pompa',
     image_url: 'https://media.istockphoto.com/photos/dog-jumping-in-autumn-picture-id1280392364?s=612x612',
-    description: 'brian pompa'
+    description: 'Brian Pompa | Product Manager'
 },
 {
-    id: 'test1', 
+    id: 'Galadoe Kulee',
     image_url: 'https://media.istockphoto.com/photos/dog-jumping-in-autumn-picture-id1280392364?s=612x612',
-    description: 'test1'
+    description: 'Galadoe Kulee | Project Manager '
 },{
-    id: 'test2', 
+    id: 'Trey Rogers',
     image_url: 'https://media.istockphoto.com/photos/dog-jumping-in-autumn-picture-id1280392364?s=612x612',
-    description: 'test2'
+    description: 'Trey Rogers | Tech Lead'
 },{
-    id: 'test3', 
+    id: 'Chris Mackey',
     image_url: 'https://media.istockphoto.com/photos/dog-jumping-in-autumn-picture-id1280392364?s=612x612',
-    description: 'test3'
+    description: 'Chris Mackey | Design Lead'
 },]
 class AboutUs extends Component{
     render() {
         console.log("loading")
         return(
             <>
-            <h1>Name</h1>
+            <h1>About the Developers</h1>
             {teamchips.map(person => {
-                return (<CardComponent event={person}/>) 
+                return (<CardComponent event={person}/>)
             })}
             </>
 
