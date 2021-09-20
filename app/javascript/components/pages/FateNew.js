@@ -30,8 +30,17 @@ class FateNew extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.createNewEvent(this.state.form);
-    this.setState({ submitted: true });
+    const { description, url, category} = this.state.form;
+    if (
+      (description === "") ||
+      (url === "") ||
+      (category === "")
+    ) {
+      alert("you need to input something");
+    } else {
+      this.props.createNewEvent(this.state.form);
+      this.setState({ submitted: true });
+    }
   };
 
   fetchImages = async () => {
@@ -69,7 +78,7 @@ class FateNew extends Component {
                 this.state.urls.map((image_url, keyID) => {
                   return (
                     <div key={keyID}>
-                      <img src={image_url} className=".h-50px"/>
+                      <img src={image_url} className="h-50px" />
                       <Input
                         name="image_url"
                         type="radio"
@@ -82,12 +91,12 @@ class FateNew extends Component {
             </div>
 
             <FormGroup>
-              <br/>
-              <Label id="Url">Url:</Label>
-              <Input
-                type="image_url"
+              <br />
+              <Label id="Url">Url</Label>
+              <FormInput
                 name="image_url"
-                onChange={this.handleChange}
+                Label="image_url"
+                handleChange={this.handleChange}
                 value={this.state.form.image_url}
               />
             </FormGroup>
