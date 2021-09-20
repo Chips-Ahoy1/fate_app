@@ -10,7 +10,7 @@ class FateShow extends Component {
     })
       .then(() => {
         this.props.fetchIndex()
-        this.props.history.push("/fateindex")
+        // this.props.history.push("/fateindex")
       })
       .catch(err => {console.error(err)})
 };
