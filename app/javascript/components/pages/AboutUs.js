@@ -1,10 +1,10 @@
 import React,{Component} from 'react'
-// import Brian from '../../assets/images/'
+import Brian from '../../../assets/images/Brian.jpg'
 import CardComponent from '../components/CardComponent'
 
 const teamchips = [{
     id: 'Brian Pompa',
-    image_url: 'https://media.istockphoto.com/photos/dog-jumping-in-autumn-picture-id1280392364?s=612x612',
+    image_url: Brian,
     description: 'Brian Pompa | Product Manager'
 },
 {
@@ -26,9 +26,11 @@ class AboutUs extends Component{
         return(
             <>
             <h1>About the Developers</h1>
+            <div className='max-w-full'>
             {teamchips.map(person => {
                 return (<CardComponent event={person}/>)
             })}
+            </div>
             </>
 
         )

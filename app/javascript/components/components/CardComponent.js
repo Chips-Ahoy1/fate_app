@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom'
 
 
 const CardComponent = ({ event}) => {
-    return (<div className="w-full flex justify-center items-end padding mb-6">
+    return (<div className="max-w-screen-md flex justify-center items-center padding mb-6">
         <div> 
         <NavLink className="names" to={`/fateshow/${event.id}`}>
             <img src={event.image_url} alt={event.category} />
