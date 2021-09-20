@@ -9,6 +9,6 @@ describe('when Home renders', () => {
   test('should display home page', () => {
       const home = shallow(<Home/>)
       const homeText = home.find("h1")
-    expect(homeText.text()).toEqual("This is the Home page")
+    expect(homeText.text()).toEqual("Fate")
   })
 })
