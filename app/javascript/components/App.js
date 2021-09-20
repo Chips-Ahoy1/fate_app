@@ -89,7 +89,7 @@ class App extends React.Component {
             render={(props) => {
               let id = props.match.params.id;
               let event = this.state.events.find((event) => event.id === +id);
-              return <FateShow event={event} fetchIndex={this.fetchIndex} />;
+              return <FateShow event={event} history={props.history} fetchIndex={this.fetchIndex} />;
             }}
           />
           <Route path='/fateupdate/:id'

@@ -8,17 +8,12 @@ class FateShow extends Component {
       headers: { "Content-Type": "application/json" },
       method: "DELETE",
     })
-      .then((response) => {
-        if (response.status > 400) {
-          return response.status;
-        } else {
-          return console.error(`response.status: ${response.status}`);
-        }
-      })
       .then(() => {
-        this.props.fetchIndex();
-      });
-  };
+        this.props.fetchIndex()
+        this.props.history.push("/fateindex")
+      })
+      .catch(err => {console.error(err)})
+};
   render() {
     return (
       <>
