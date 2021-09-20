@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
     extend: {
+     fontFamily: {
+       'marack':['Marck Script', 'cursive'],
+       'allerta': ['Allerta Stencil', 'sans-serif']
+     },
       colors: {
         primary: {
           100: "#fef6eb",

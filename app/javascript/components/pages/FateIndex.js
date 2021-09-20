@@ -10,13 +10,21 @@ class FateIndex extends Component {
     }
     render() {
         return (
-            <>
-                <div>
-                    <h2>This is Fate Index Page Test1</h2>
+            
+                <div className='flex items-center justify-center flex-col'>
+                    <br/>
+                    <br/>
+                    
+                    <h2 className='font-allerta text-6xl'>Welcome to Fate</h2>
+                    <br/>
+                    <br/>
+                    <div className='flex items-center justify-center flex-col'>
+
                     {this.props.events && this.props.events.map((event, i) => <CardComponent event={event} key={i} />)}
                     <Button title="Add an interest" handleClick={this.handleClick} />
+                    </div>
                 </div>
-            </>
+            
         );
     }
 }

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Input, Label, Button } from "reactstrap";
+import { Form, FormGroup, Input, Label } from "reactstrap";
 import { Redirect } from "react-router-dom";
 import { fetchHelper } from "../../lib/fetchHelper.js";
 import FormInput from "../components/Form/FormInput";
+import Button from '../components/Button'
 
 class FateNew extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class FateNew extends Component {
     this.state = {
       form: {
         category: "",
-        url: "",
+        image_url: "",
         description: "",
         is_public: false,
       },
@@ -49,32 +50,30 @@ class FateNew extends Component {
     return (
       <>
         <div className="grid justify-items-center">
-          <h1 className="text-4xl">This is the FateNew page</h1>
+          <h1 className="text-4xl">Add An Event</h1>
+          <br/>
+          <br/>
           <Form>
             <FormInput
               name="category"
               handleChange={this.handleChange}
               value={this.state.form.category}
-              label="Category"
+              label="Category:"
             />
             <Button
-              name="fetch-images"
+              title="Fetch Images"
               onClick={this.fetchImages}
-              className="button-style"
-            >
-              get images
-            </Button>
-
+            />
             <div>
               {this.state.urls &&
-                this.state.urls.map((url, keyID) => {
+                this.state.urls.map((image_url, keyID) => {
                   return (
                     <div key={keyID}>
-                      <img src={url} className="h-50px" />
+                      <img src={image_url} className=".h-50px"/>
                       <Input
-                        name="url"
+                        name="image_url"
                         type="radio"
-                        value={url}
+                        value={image_url}
                         onChange={this.handleChange}
                       />
                     </div>
@@ -83,18 +82,18 @@ class FateNew extends Component {
             </div>
 
             <FormGroup>
-              <br />
-              <Label id="Url">Url</Label>
-              <FormInput
-                name="Image_url"
-                Label="url"
-                handleChange={this.handleChange}
-                value={this.state.form.url}
+              <br/>
+              <Label id="Url">Url:</Label>
+              <Input
+                type="image_url"
+                name="image_url"
+                onChange={this.handleChange}
+                value={this.state.form.image_url}
               />
             </FormGroup>
             <FormGroup>
               <br />
-              <Label id="NewTable">Description</Label>
+              <Label id="NewTable">Description:</Label>
               <Input
                 type="text"
                 name="description"
@@ -126,20 +125,18 @@ class FateNew extends Component {
                 </Label>
               </FormGroup>
             </div>
+            <br/>
             <Button
-              name="go-back"
+              title="Submit"
               onClick={this.handleSubmit}
-              className="button-style"
-            >
-              Go Back
-            </Button>
+            />
+            <br/>
+            <br/>
             <Button
-              name="submit"
+              title="Go Back"
               onClick={this.handleSubmit}
-              className="button-style"
-            >
-              submit
-            </Button>
+            />
+
           </Form>
           {this.state.submitted && <Redirect to="/fateindex" />}
         </div>
