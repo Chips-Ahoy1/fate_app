@@ -29,12 +29,11 @@ class FateNew extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    const { description, url, category, is_public } = this.state.form;
+    const { description, url, category} = this.state.form;
     if (
-      (!description && description === "") ||
-      (!url && url === "") ||
-      (!category && category === "") ||
-      (!is_public && is_public === "")
+      (description === "") ||
+      (url === "") ||
+      (category === "")
     ) {
       alert("you need to input something");
     } else {

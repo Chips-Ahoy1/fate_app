@@ -25,12 +25,11 @@ class FateUpdate extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    const { description, url, category, is_public } = this.state.form;
+    const { description, url, category} = this.state.form;
     if (
-      (!description && description === "") ||
-      (!url && url === "") ||
-      (!category && category === "") ||
-      (!is_public && is_public === "")
+      (description === "") ||
+      (url === "") ||
+      (category === "")
     ) {
       alert("you need to input something");
     } else {
@@ -148,7 +147,7 @@ class FateUpdate extends Component {
             submit
           </Button>
         </Form>
-        {this.state.submitted && <Redirect to="/fateindex" />}
+        {this.state.submitted && <Redirect to={`/fateshow/${this.props.event.id}`}/>}
       </div>
     );
   }
