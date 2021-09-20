@@ -1,28 +1,43 @@
-import React, { Component } from 'react'
-import Button from '../components/Button'
+import React, { Component } from "react";
+import Button from "../components/Button";
 
 class FateShow extends Component {
-
-    render() {
-        return (
-            <>
-                <div className='flex items-center justify-center flex-col'>
-                    
-                    <h1 className='text-5xl'></h1>
-                    <br/>
-                    <br/>
-                    {this.props.event && (
-                        <div className='flex items-center justify-center flex-col'>
-                            <h2 className='text-3xl'>{this.props.event.category}</h2>
-                            <br/>
-                            <img src={this.props.event.image_url} />
-                            <p>{this.props.event.description}</p>
-                        </div>
-                    )}
-                </div>
-            </>
-
-        )
-    }
+  handleDelete = () => {
+    fetch(`/events/${this.props.event.id}`, {
+      headers: { "Content-Type": "application/json" },
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (response.status > 400) {
+          return response.status;
+        } else {
+          return console.error(`response.status: ${response.status}`);
+        }
+      })
+      .then(() => {
+        this.props.fetchIndex();
+      });
+  };
+  render() {
+    return (
+      <>
+        <div>
+          <h1>Show Page</h1>
+          {this.props.event && (
+            <div>
+              <p>{this.props.event.category}</p>
+              <p>{this.props.event.description}</p>
+              <img src={this.props.event.image_url} />
+              <Button
+                className="bg-red"
+                title="Delete"
+                handleClick={this.handleDelete}
+              />
+            </div>
+          )}
+        </div>
+      </>
+    );
+  }
 }
-export default FateShow
+export default FateShow;
