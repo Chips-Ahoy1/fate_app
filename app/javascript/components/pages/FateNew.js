@@ -11,7 +11,7 @@ class FateNew extends Component {
     this.state = {
       form: {
         category: "",
-        url: "",
+        image_url: "",
         description: "",
         is_public: false,
       },
@@ -29,8 +29,18 @@ class FateNew extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.createNewEvent(this.state.form);
-    this.setState({ submitted: true });
+    const { description, url, category, is_public } = this.state.form;
+    if (
+      (!description && description === "") ||
+      (!url && url === "") ||
+      (!category && category === "") ||
+      (!is_public && is_public === "")
+    ) {
+      alert("you need to input something");
+    } else {
+      this.props.createNewEvent(this.state.form);
+      this.setState({ submitted: true });
+    }
   };
 
   fetchImages = async () => {
@@ -67,14 +77,14 @@ class FateNew extends Component {
 
             <div>
               {this.state.urls &&
-                this.state.urls.map((url, keyID) => {
+                this.state.urls.map((image_url, keyID) => {
                   return (
                     <div key={keyID}>
-                      <img src={url} className="h-50px" />
+                      <img src={image_url} className="h-50px" />
                       <Input
-                        name="url"
+                        name="image_url"
                         type="radio"
-                        value={url}
+                        value={image_url}
                         onChange={this.handleChange}
                       />
                     </div>
@@ -86,10 +96,10 @@ class FateNew extends Component {
               <br />
               <Label id="Url">Url</Label>
               <FormInput
-                name="Image_url"
-                Label="url"
+                name="image_url"
+                Label="image_url"
                 handleChange={this.handleChange}
-                value={this.state.form.url}
+                value={this.state.form.image_url}
               />
             </FormGroup>
             <FormGroup>

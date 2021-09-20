@@ -9,6 +9,7 @@ import FateIndex from "./pages/FateIndex";
 import FateShow from "./pages/FateShow";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
+import FateUpdate from "./pages/FateUpdate";
 
 class App extends React.Component {
   constructor(props) {
@@ -16,12 +17,12 @@ class App extends React.Component {
 
     this.state = {
       events: [],
-    };
-  }
+    }
+  };
 
   componentDidMount() {
     this.fetchIndex();
-  }
+  };
 
   fetchIndex = () => {
     fetch("/events")
@@ -31,15 +32,6 @@ class App extends React.Component {
   };
 
   createNewEvent = (event) => {
-    const { description, url, category, is_public } = event;
-    if (
-      (!description && description === "") ||
-      (!url && url === "") ||
-      (!category && category === "") ||
-      (!is_public && is_public === "")
-    ) {
-      alert("you need to input something");
-    } else {
       fetch("/events", {
         body: JSON.stringify(event),
         headers: { "Content-Type": "application/json" },
@@ -58,9 +50,26 @@ class App extends React.Component {
         // window.location = "/apartmentindex"
         .catch((err) => {
           console.log("createnewerror: ", err);
-        });
-    }
+        })
   };
+  updateEvent = (event,id) => {
+    
+    fetch(`/events/${id}`, {
+      body: JSON.stringify(event),
+      headers: { "Content-Type": "application/json" },
+      method: "PATCH",
+    })
+      .then((response) => {
+        if (response.status > 400) {
+          return response.status;
+        } else {
+          return response.json();
+        }
+      })
+      .then((event) => {
+        this.fetchIndex();
+      })
+  }
   render() {
     return (
       <Router>
@@ -82,6 +91,13 @@ class App extends React.Component {
               let event = this.state.events.find((event) => event.id === +id);
               return <FateShow event={event} fetchIndex={this.fetchIndex} />;
             }}
+          />
+          <Route path='/fateupdate/:id'
+            render={(props) => {
+              let id = props.match.params.id;
+              let event = this.state.events.find((event) => event.id === +id);
+              return <FateUpdate event={event} updateEvent={this.updateEvent}/> // add update event
+            }}     
           />
           <Route path="/aboutus" component={AboutUs} />
         </Switch>

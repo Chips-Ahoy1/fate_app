@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import Button from "../components/Button";
 
 class FateShow extends Component {
@@ -33,6 +34,12 @@ class FateShow extends Component {
                 title="Delete"
                 handleClick={this.handleDelete}
               />
+              <NavLink to={`/fateupdate/${this.props.event.id}`}>
+                <Button
+                  title="Update"
+                  handleClick={() => {}} // Empty function using created component to preserve styling
+                />
+              </NavLink>
             </div>
           )}
         </div>
