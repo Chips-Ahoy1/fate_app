@@ -5,9 +5,7 @@ import Button from "../components/Button";
 import CardComponent from "../components/CardComponent";
 
 class FateIndex extends Component {
-
-  
-  render() {
+   render() {
     return (
       <>
         <div>
