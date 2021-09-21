@@ -21,7 +21,7 @@ const teamchips = [{
 },{
     id: 'Chris Mackey',
     image_url: Chris,
-    description: 'Chris Mackey | Design Lead'
+    description: 'Chris Mackey | I am the Design Lead for Fate and a Full Stack Developer at Learn Academy. My goal is to create a seamless user experience and visually appealing interface. I implemented Tailwind CSS and Reactstrap to style many of the features you see here.'
 },]
 class AboutUs extends Component{
     render() {
