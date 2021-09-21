@@ -8,7 +8,7 @@ import CardComponent from '../components/CardComponent'
 const teamchips = [{
     id: 'Brian Pompa',
     image_url: Brian,
-    description: 'Brian Pompa | Product Manager'
+    description: 'Hi my name is Brian Pompa i am the product manager in our team chips Ahoy. I am a full stack developer in LEARN Academy. my job is to communicate with my team and the instrcutors about the project and give updated details.'
 },
 {
     id: 'Galadoe Kulee',
