@@ -13,7 +13,7 @@ const teamchips = [{
 {
     id: 'Galadoe Kulee',
     image_url: Galadoe,
-    description: 'Galadoe Kulee | Project Manager '
+    description: 'Galadoe Kulee | Project Manager; I am a Full Stack Developer Student at LEARN Academy. In our team (Chips Ahoy), I ensured developers are assigned to the card they are working on, decides when a card is done'
 },{
     id: 'Trey Rogers',
     image_url: Trey,
