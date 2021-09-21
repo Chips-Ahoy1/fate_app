@@ -17,7 +17,7 @@ const teamchips = [{
 },{
     id: 'Trey Rogers',
     image_url: Trey,
-    description: 'Trey Rogers | Tech Lead'
+    description: 'Trey Rogers | Tech Lead, I am a prior Marine, and full stack software developer at Learn Academy, I ensure myself and my group and organized in Github aswell as working with my group to understand and push through any hurdles we may experience.'
 },{
     id: 'Chris Mackey',
     image_url: Chris,
