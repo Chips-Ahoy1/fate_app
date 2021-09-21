@@ -77,6 +77,7 @@ class App extends React.Component {
         <Header {...this.props} />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/aboutus" component={AboutUs} />
           <Route path="/notfound" component={NotFound} />
           {loggedIn ? (
             <>
@@ -119,9 +120,7 @@ class App extends React.Component {
                 }} 
               />
             </>
-          ): <Redirect push to="/notfound"/>}
-          
-          <Route path="/aboutus" component={AboutUs} />
+          ): <Redirect push to="/notfound"/>}          
         </Switch>
       </Router>
     );

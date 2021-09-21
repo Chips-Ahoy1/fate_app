@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavItem, Nav, Col, Card, CardSubtitle } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import Button from "../components/Button";
+import CustomButton from "../components/Button";
 import CardComponent from "../components/CardComponent";
 
 class FateIndex extends Component {
@@ -14,7 +14,7 @@ class FateIndex extends Component {
             this.props.events.map((event, i) => (
               <CardComponent event={event} key={i} />
             ))}
-          <Button title="Add an interest" handleClick={this.handleClick} />
+          <CustomButton title="Add an interest" handleClick={this.handleClick} />
         </div>
       </>
     );

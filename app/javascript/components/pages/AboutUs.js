@@ -25,13 +25,12 @@ const teamchips = [{
 },]
 class AboutUs extends Component{
     render() {
-        console.log("loading")
         return(
             <>
             <h1>About the Developers</h1>
             <div className='max-w-full'>
-            {teamchips.map(person => {
-                return (<CardComponent event={person}/>)
+            {teamchips.map((person, index) => {
+                return (<CardComponent key={index} event={person}/>)
             })}
             </div>
             </>

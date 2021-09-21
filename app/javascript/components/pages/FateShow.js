@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import Button from "../components/Button";
+import CustomButton from "../components/Button";
 
 class FateShow extends Component {
   handleDelete = () => {
@@ -30,7 +30,7 @@ class FateShow extends Component {
                 handleClick={this.handleDelete}
               />
               <NavLink to={`/fateupdate/${this.props.event.id}`}>
-                <Button
+                <CustomButton
                   title="Update"
                   handleClick={() => {}} // Empty function using created component to preserve styling
                 />
