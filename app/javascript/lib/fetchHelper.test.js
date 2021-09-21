@@ -1,6 +1,7 @@
 import {fetchHelper} from './fetchHelper'
 import {mockResponse} from './mockUnSplashResponse'
 
+
 describe('lib/fetchHelper', () => {
     it('exist', () => {
       expect(fetchHelper).toBeTruthy()

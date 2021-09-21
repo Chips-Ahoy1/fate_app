@@ -5,7 +5,7 @@ class NotFound extends Component{
 
         return(
 
-            <h1>This is the NotFound page</h1>
+            <h1 style={{fontSize: '30px', textAlign: 'center'}}>Of no something went wrong! :(</h1>
 
         )
     }

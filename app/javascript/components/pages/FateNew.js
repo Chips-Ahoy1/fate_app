@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Input, Label } from "reactstrap";
+import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 import { Redirect } from "react-router-dom";
 import { fetchHelper } from "../../lib/fetchHelper.js";
 import FormInput from "../components/Form/FormInput";
-import Button from '../components/Button'
+import CustomButton from '../components/Button'
 
 class FateNew extends Component {
   constructor(props) {
@@ -30,8 +30,17 @@ class FateNew extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.createNewEvent(this.state.form);
-    this.setState({ submitted: true });
+    const { description, url, category} = this.state.form;
+    if (
+      (description === "") ||
+      (url === "") ||
+      (category === "")
+    ) {
+      alert("you need to input something");
+    } else {
+      this.props.createNewEvent(this.state.form);
+      this.setState({ submitted: true });
+    }
   };
 
   fetchImages = async () => {
@@ -42,7 +51,8 @@ class FateNew extends Component {
         `https://api.unsplash.com/search/photos/?client_id=1cb7RG1N3agHLuchuLs2GeqtKtdcyELRMj5HLHf8p48&query=${this.state.form.category}&per_page=3&orientation`
       );
       const responseJson = await response.json();
-      this.setState({ urls: fetchHelper(responseJson) });
+      this.setState({ urls: fetchHelper(responseJson) })
+      debugger
     }
   };
 
@@ -60,16 +70,18 @@ class FateNew extends Component {
               value={this.state.form.category}
               label="Category:"
             />
-            <Button
-              title="Fetch Images"
-              onClick={this.fetchImages}
-            />
+            <CustomButton
+              name="fetch-images"
+              handleClick={this.fetchImages}
+              className="button-style"
+              title = "Fetch Images"
+              />
             <div>
               {this.state.urls &&
                 this.state.urls.map((image_url, keyID) => {
                   return (
                     <div key={keyID}>
-                      <img src={image_url} className=".h-50px"/>
+                      <img src={image_url} className="h-50px" />
                       <Input
                         name="image_url"
                         type="radio"
@@ -82,12 +94,12 @@ class FateNew extends Component {
             </div>
 
             <FormGroup>
-              <br/>
-              <Label id="Url">Url:</Label>
-              <Input
-                type="image_url"
+              <br />
+              <Label id="Url">Url</Label>
+              <FormInput
                 name="image_url"
-                onChange={this.handleChange}
+                Label="image_url"
+                handleChange={this.handleChange}
                 value={this.state.form.image_url}
               />
             </FormGroup>
@@ -126,15 +138,15 @@ class FateNew extends Component {
               </FormGroup>
             </div>
             <br/>
-            <Button
+            <CustomButton
               title="Submit"
-              onClick={this.handleSubmit}
+              handleClick={this.handleSubmit}
             />
             <br/>
             <br/>
-            <Button
+            <CustomButton
               title="Go Back"
-              onClick={this.handleSubmit}
+              handleClick={this.handleSubmit}
             />
 
           </Form>

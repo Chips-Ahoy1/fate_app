@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import Button from "../components/Button";
 
 class FateShow extends Component {
@@ -7,17 +8,12 @@ class FateShow extends Component {
       headers: { "Content-Type": "application/json" },
       method: "DELETE",
     })
-      .then((response) => {
-        if (response.status > 400) {
-          return response.status;
-        } else {
-          return console.error(`response.status: ${response.status}`);
-        }
-      })
       .then(() => {
-        this.props.fetchIndex();
-      });
-  };
+        this.props.fetchIndex()
+        // this.props.history.push("/fateindex")
+      })
+      .catch(err => {console.error(err)})
+};
   render() {
     return (
       <>
@@ -33,6 +29,12 @@ class FateShow extends Component {
                 title="Delete"
                 handleClick={this.handleDelete}
               />
+              <NavLink to={`/fateupdate/${this.props.event.id}`}>
+                <Button
+                  title="Update"
+                  handleClick={() => {}} // Empty function using created component to preserve styling
+                />
+              </NavLink>
             </div>
           )}
         </div>

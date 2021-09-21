@@ -84,3 +84,4 @@ production:
   database: fate_app_production
   username: fate_app
   password: <%= ENV['FATE_APP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
