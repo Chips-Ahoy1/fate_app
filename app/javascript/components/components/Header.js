@@ -8,8 +8,6 @@ class Header extends Component {
       sign_in_route: signInRoute,
       sign_out_route: signOutRoute,
     } = this.props;
-    console.log({ signInRoute });
-    console.log({ signOutRoute });
     return (
       <>
         <Nav className="relative flex items-center justify-between px-2 py-3 bg-green-100 mb-3 w-full">
