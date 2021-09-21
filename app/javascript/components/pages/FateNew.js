@@ -52,7 +52,6 @@ class FateNew extends Component {
       );
       const responseJson = await response.json();
       this.setState({ urls: fetchHelper(responseJson) })
-      debugger
     }
   };
 

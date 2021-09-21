@@ -24,7 +24,7 @@ class FateShow extends Component {
               <p>{this.props.event.category}</p>
               <p>{this.props.event.description}</p>
               <img src={this.props.event.image_url} />
-              <Button
+              <CustomButton
                 className="bg-red"
                 title="Delete"
                 handleClick={this.handleDelete}
