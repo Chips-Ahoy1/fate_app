@@ -18,7 +18,7 @@ class FateShow extends Component {
     return (
       <>
         <div>
-          <h1>Show Page</h1>
+          <h1></h1>
           {this.props.event && (
             <div>
               <p>{this.props.event.category}</p>

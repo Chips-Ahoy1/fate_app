@@ -8,8 +8,8 @@ Enzyme.configure({ adapter: new Adapter() })
 describe('when FateEdit renders', () => {
     test('should display index heading', () => {
         const fateUpdate = shallow(<FateUpdate/>)
-        const fateEditHeading = fateUpdate.find("h1")
-      expect(fateEditHeading.text()).toEqual("This is the FateEdit page")
+        const form = fateUpdate.find("Form")
+        expect(form.length).toEqual(1)
     })
 
 })

@@ -53,7 +53,7 @@ class FateUpdate extends Component {
   render() {
     return (
       <div className="grid justify-items-center">
-        <h1 className="text-4xl">This is the FateEdit page</h1>
+        <h1 className="text-4xl"></h1>
         <Form>
           <FormInput
             name="category"
