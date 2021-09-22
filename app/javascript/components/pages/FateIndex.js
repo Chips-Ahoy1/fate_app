@@ -8,8 +8,8 @@ class FateIndex extends Component {
   render() {
     return (
       <>
-        <div>
-          <h2>View events</h2>
+        <div className="max-w-screen-md flex items-center justify-center flex-col padding mb-6 mx-auto">
+          <h2>Events</h2>
           {this.props.events &&
             this.props.events.map((event, i) => (
               <CardComponent event={event} key={i} />

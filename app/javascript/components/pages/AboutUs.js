@@ -34,7 +34,7 @@ const teamchips = [
 class AboutUs extends Component {
   render() {
     return (
-      <>
+      <div className="max-w-screen-md flex items-center justify-center flex-col padding mb-6 mx-auto">
         <h1>About the Developers</h1>
         <div className="max-w-50">
           {teamchips.map((person, index) => {
@@ -45,7 +45,7 @@ class AboutUs extends Component {
             );
           })}
         </div>
-      </>
+      </div>
     );
   }
 }
