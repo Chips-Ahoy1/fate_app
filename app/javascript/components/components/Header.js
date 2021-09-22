@@ -25,9 +25,6 @@ class Header extends Component {
                   <NavItem>
                     <NavLink to="/fatenew">Add Event</NavLink>
                   </NavItem>
-                  <NavItem>
-                    <NavLink to="/fateshow">My Profile</NavLink>
-                  </NavItem>
                 </>
               )}
 

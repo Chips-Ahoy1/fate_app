@@ -5,16 +5,21 @@ import CustomButton from "../components/Button";
 import CardComponent from "../components/CardComponent";
 
 class FateIndex extends Component {
-   render() {
+  render() {
     return (
       <>
         <div>
-          <h2>This is Fate Index Page Test1</h2>
+          <h2>View events</h2>
           {this.props.events &&
             this.props.events.map((event, i) => (
               <CardComponent event={event} key={i} />
             ))}
-          <CustomButton title="Add an interest" handleClick={this.handleClick} />
+            <NavLink to="/fatenew">
+          <CustomButton
+            title="Add an interest"
+            handleClick={() => {}}
+          />
+          </NavLink>
         </div>
       </>
     );

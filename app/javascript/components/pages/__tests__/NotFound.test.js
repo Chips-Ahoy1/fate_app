@@ -9,7 +9,7 @@ describe('when NotFound renders', () => {
     test('should display NotFound page', () => {
         const notFound = shallow(<NotFound/>)
         const notFoundLink = notFound.find("h1")
-      expect(notFoundLink.text()).toEqual("This is the NotFound page")
+      expect(notFoundLink.text()).toEqual("Oh no something went wrong! :(")
     })
 
 })

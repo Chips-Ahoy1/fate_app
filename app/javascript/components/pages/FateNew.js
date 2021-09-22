@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Input, Label, Button } from "reactstrap";
-import { Redirect } from "react-router-dom";
+import { Form, FormGroup, Input, Label,} from "reactstrap";
+import { Redirect,NavLink } from "react-router-dom";
 import { fetchHelper } from "../../lib/fetchHelper.js";
 import FormInput from "../components/Form/FormInput";
 import CustomButton from '../components/Button'
@@ -143,11 +143,12 @@ class FateNew extends Component {
             />
             <br/>
             <br/>
+            <NavLink to= "/">
             <CustomButton
               title="Go Back"
-              handleClick={this.handleSubmit}
+              handleClick={() => {}}
             />
-
+            </NavLink>
           </Form>
           {this.state.submitted && <Redirect to="/fateindex" />}
         </div>

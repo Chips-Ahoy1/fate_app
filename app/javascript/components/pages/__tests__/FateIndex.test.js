@@ -18,6 +18,6 @@ describe('when FateIndex renders', () => {
     test('should display index heading', () => {
         const fateIndex = shallow(<FateIndex/>)
         const indexHeading = fateIndex.find("h2")
-      expect(indexHeading.text()).toEqual("This is Fate Index Page Test1")
+      expect(indexHeading.text()).toEqual("View events")
     })
 })
